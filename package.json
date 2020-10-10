@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "elasticlunr": "^0.9.5",
-    "lunr-languages": "^1.4.0"
+    "lunr-languages": "git+https://github.com/MihaiValentin/lunr-languages.git"
   },
   "peerDependencies": {
     "gatsby": ">2.0.0-alpha",
