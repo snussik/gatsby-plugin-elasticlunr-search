@@ -2,7 +2,7 @@ const crypto = require(`crypto`)
 const { GraphQLScalarType } = require(`gatsby/graphql`)
 const elasticlunr = require(`elasticlunr`)
 require('lunr-languages/lunr.stemmer.support')(elasticlunr);
-require('lunr-languages/lunr.ru');
+require('lunr-languages/lunr.ru')(elasticlunr);
 
 const SEARCH_INDEX_ID = `SearchIndex < Site`
 const SEARCH_INDEX_TYPE = `SiteSearchIndex`
