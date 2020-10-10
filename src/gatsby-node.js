@@ -1,6 +1,8 @@
 const crypto = require(`crypto`)
 const { GraphQLScalarType } = require(`gatsby/graphql`)
 const elasticlunr = require(`elasticlunr`)
+require('lunr-languages/lunr.stemmer.support')(elasticlunr);
+require('lunr-languages/lunr.ru');
 
 const SEARCH_INDEX_ID = `SearchIndex < Site`
 const SEARCH_INDEX_TYPE = `SiteSearchIndex`
@@ -52,7 +54,10 @@ const createOrGetIndex = async (
     return cached
   }
 
-  const index = elasticlunr()
+  const index = elasticlunr(function () {
+    // use the language (ru)
+    this.use(elasticlunr.ru);
+})
   index.setRef(`id`)
   fields.forEach(field => index.addField(field))
 
